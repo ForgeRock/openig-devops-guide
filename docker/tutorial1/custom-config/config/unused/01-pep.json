@@ -1,0 +1,48 @@
+{
+  "handler": {
+    "type": "DispatchHandler",
+    "config": {
+      "bindings": [
+        {
+          "condition": "${request.cookies['iPlanetDirectoryPro'] == null}",
+          "handler": {
+            "type": "StaticResponseHandler",
+            "config": {
+              "status": 302,
+              "reason": "Found",
+              "headers": {
+                "Location": [
+                  "${env['OPENAM_URL']/XUI/#login/&goto=${urlEncode(contexts.router.originalUri)}"
+                ]
+              },
+              "entity": "Redirecting to OpenAM..."
+            }
+          }
+        },
+        {
+          "comment": "This condition is optional, but included for clarity.",
+          "condition": "${request.cookies['iPlanetDirectoryPro'] != null}",
+          "handler": {
+            "type": "Chain",
+            "config": {
+              "filters": [
+                {
+                  "type": "PolicyEnforcementFilter",
+                  "config": {
+                    "openamUrl": "${env['OPENAM_URL']}",
+                    "pepUsername": "${env['POLICY_ADMIN']}",
+                    "pepPassword": "${env['POLICY_ADMIN_PWD']}",
+                    "ssoTokenSubject": "${request.cookies['iPlanetDirectoryPro'][0].value}"
+                  }
+                }
+              ],
+              "handler": "ClientHandler"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "condition": "${matches(request.uri.path, '^/pep') and not contains(request.uri.path, 'not-enforced')}"
+}
+

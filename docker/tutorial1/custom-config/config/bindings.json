@@ -1,0 +1,4 @@
+{
+  "welcomeMsg" : "Welcome to OpenIG",
+  "callbackUrl" : "http://openig.master.test.com/openid/callback"
+}

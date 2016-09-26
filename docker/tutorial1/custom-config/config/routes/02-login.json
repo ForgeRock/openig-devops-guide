@@ -1,0 +1,40 @@
+{
+  "handler": {
+    "type": "Chain",
+    "config": {
+      "filters": [
+        {
+          "type": "PasswordReplayFilter",
+          "config": {
+            "loginPage": "${true}",
+            "credentials": {
+              "type": "FileAttributesFilter",
+              "config": {
+                "file": "${env['OPENIG_BASE'].concat('/passwords.txt')}",
+                "key": "email",
+                "value": "george@example.com",
+                "target": "${attributes.credentials}"
+              }
+            },
+            "request": {
+              "method": "POST",
+              "uri": "http://sample-app",
+              "form": {
+                "username": [
+                  "${attributes.credentials.username}"
+                ],
+                "password": [
+                  "${attributes.credentials.password}"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "handler": "ClientHandler"
+    }
+  },
+  "condition": "${matches(request.uri.path, '^/login')}"
+}
+ 
+
