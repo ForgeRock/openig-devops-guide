@@ -1,0 +1,12 @@
+{
+  "prefix" : "openig",
+  "heap": [
+    {
+      "name": "ApiProtectionFilter",
+      "type": "ChainOfFilters",
+      "config": {
+        "filters": []
+      }
+    }
+  ]
+}

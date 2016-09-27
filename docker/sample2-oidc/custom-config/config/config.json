@@ -1,0 +1,27 @@
+{
+  "handler": {
+    "type": "Router",
+    "audit": "global",
+    "baseURI": "https://forgerock.org:443",
+    "capture": "all"
+  },
+  "session": "JwtSession",
+  "heap": [
+    {
+      "name": "JwtSession",
+      "type": "JwtSession",
+      "config": {
+        "cookieName": "OpenIG",
+        "sharedSecret": "T3BlbklHaXNGdW5GdW5PcGVuSUdpc0Z1bkZ1bk9wZW5JR2lzRnVuRnVuT3BlbklHaXNGdW5GdW4="
+      }
+    },
+    {
+      "name": "capture",
+      "type": "CaptureDecorator",
+      "config": {
+        "captureEntity": true,
+        "_captureContext": true
+      }
+    }
+  ]
+}
