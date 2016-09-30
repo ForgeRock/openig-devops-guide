@@ -20,7 +20,7 @@ EXPOSE 8080 8443
 # If you want to use your own custom IG war file, uncomment these lines
 # and comment out the curl command below
 #ADD openig.war webapps/ROOT.war
-#ADD run-openig.sh /tmp/run-openig.sh
+
 
 # otherwise, pull down OpenIG from the Maven repo
 ENV MVN_REPO=https://maven.forgerock.org/repo/repo/org/forgerock/openig
