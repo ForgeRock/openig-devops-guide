@@ -3,7 +3,8 @@
     "type": "StaticResponseHandler",
     "config" : {
       "status": 200,
-      "entity": "Msg: ${welcomeMsg} Hostname: ${env['HOSTNAME']} Namespace: ${env['NAMESPACE']} Image: ${env['IMAGE']}"
+      "reason": "OK",
+      "entity": "Hello, world! Your route is ${request.uri.path}"
     }
   },
   "condition": "${matches(request.uri.path, '^/hello')}"
