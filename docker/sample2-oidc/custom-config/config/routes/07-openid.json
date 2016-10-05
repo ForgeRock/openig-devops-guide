@@ -17,7 +17,7 @@
         "clientSecret": "${env['CLIENT_SECRET']}",
         "issuer": "accounts.google.com",
         "redirect_uris": [
-          "http://openig.test.com:18080/openid/callback"
+          "http://openig.test.com:8080/openid/callback"
         ],
         "scopes": [
           "openid",
