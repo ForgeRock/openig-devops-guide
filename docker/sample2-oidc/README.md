@@ -18,8 +18,3 @@ export CLIENT_SECRET=yyyy
 ### Run
 
 docker run --env CLIENT_ID="${CLIENT_ID}" --env CLIENT_SECRET="${CLIENT_SECRET}" -it -p 18080:8080 openig-oidc
-
-
-1067706085367-c03q8su1jcjn94lvtgm9ppk232juq920.apps.googleusercontent.com
-
-oDZ1c5rtY5szH3dRlHqm-5N5
