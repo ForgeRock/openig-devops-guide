@@ -1,11 +1,10 @@
-# Sample 2 
+# Sample 2
 
-### Before you start: 
+### Before you start:
 Build the base image from the ../sample1_base directory.
 
-### 1. Add OpenIG configuration:
-Rename /custom-config/config/routes/01-hello.json.tutorial 
-to     /custom-config/config/routes/01-hello.json.  
+### 1. Review and if necessary edit the OpenIG configuration file
+in  /custom-config/config/routes/01-hello.json.
  
 ### 2. From this directory, build the docker image
 docker build -t sample2-config .
