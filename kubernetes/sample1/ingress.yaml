@@ -1,0 +1,23 @@
+# Ingress for our components
+# Note that the nginx ingress path /foo matches /foo, /foo/bar etc.
+# To get the equivalent on GCE ingress you need two rules /foo and /foo/*
+# Nginx seems OK to ignore the extra *
+#
+#
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: openig
+spec:
+  rules:
+  - host: openig.test.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: openig
+          servicePort: 80
+      - path: /*
+        backend:
+          serviceName: openig
+          servicePort: 80

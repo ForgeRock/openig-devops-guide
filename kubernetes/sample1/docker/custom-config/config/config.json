@@ -1,0 +1,39 @@
+{
+  "handler": {
+    "type": "Router",
+    "audit": "global",
+    "baseURI": "https://forgerock.org:443",
+    "capture": "all"
+  },
+  "bindings": { "$location": "file:/var/openig/config/bindings.json"},
+  "session": "JwtSession",
+  "heap": [
+    {
+      "name": "IGKeyStore",
+      "type": "KeyStore",
+      "config": {
+        "url": "file:///var/secrets/openig/keystore.jks",
+        "password": "changeit"
+      }
+    },
+    {
+      "name": "JwtSession",
+      "type": "JwtSession",
+      "config": {
+        "keystore": "IGKeyStore",
+        "alias": "ig-jwt-keypair",
+        "password": "changeit",
+        "cookieName": "OpenIG",
+        "sharedSecret": "T3BlbklHaXNGdW5GdW5PcGVuSUdpc0Z1bkZ1bk9wZW5JR2lzRnVuRnVuT3BlbklHaXNGdW5GdW4="
+      }
+    },
+    {
+      "name": "capture",
+      "type": "CaptureDecorator",
+      "config": {
+        "captureEntity": true,
+        "_captureContext": true
+      }
+    }
+  ]
+}

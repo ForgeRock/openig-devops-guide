@@ -1,0 +1,9 @@
+{
+  "handler": {
+    "type": "StaticResponseHandler",
+    "config" : {
+      "status": 200,
+      "entity": "${read(env['OPENIG_BASE'].concat('/html/welcome.html'))}"
+    }
+  }
+}
