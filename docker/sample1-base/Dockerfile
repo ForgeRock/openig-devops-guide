@@ -1,5 +1,5 @@
 # Build this image using docker build -t forgerock/openig-base .
-FROM tomcat:8-jre8
+FROM tomcat:8.5-jre8
 
 
 ENV CATALINA_HOME /usr/local/tomcat
@@ -16,7 +16,6 @@ RUN rm -fr webapps/*
 EXPOSE 8080 8443
 
 
-
 # If you want to use your own custom IG war file, uncomment these lines
 # and comment out the curl command below
 #ADD openig.war webapps/ROOT.war
@@ -30,6 +29,3 @@ RUN curl $MVN_REPO/openig-war/$OPENIG_VERSION/openig-war-$OPENIG_VERSION.war \
      -o /tmp/openig.war \
  && unzip /tmp/openig.war -d /usr/local/tomcat/webapps/ROOT \
  && rm -f /tmp/*zip
-
-
-CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]

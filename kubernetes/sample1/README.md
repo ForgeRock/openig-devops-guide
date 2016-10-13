@@ -1,4 +1,4 @@
-# OpenIG Sample on Kubernetes 
+# OpenIG on Kubernetes 
 
 This sample demonstrates OpenIG running on Kubernetes. It has been
 tested on minikube. 
@@ -6,11 +6,11 @@ tested on minikube.
 The sample deploys OpenIG and a sample application. It is configured 
 to demonstrate a few OpenIG features, including:
 
-* password replay to the sample application
+* Password replay to the sample application
 * OpenID connect integration with Google 
 * OpenIG throttling 
 
-# Preparing 
+# Preparing the Environment
 
 You must have a Kubernetes environment running and the kubectl
 client connected to your cluster.  A Kubernetes ingress should
@@ -21,7 +21,7 @@ callback URL for OpenID connect.
 # Building the docker image:
 
 The image requires the base image that you built as part of the docker
-tutorial.  If you have not built that image, do so now:
+tutorial.  If you have not built that image yet, do so now:
 
 ```
 docker build -t forgerock/openig-base ../docker/sample1-base
@@ -36,9 +36,9 @@ To build the image for this demo:
 
 # Creating  secrets 
 
-The sample demonstrates using Kubernetes secrets for the OpenID Connect 
+The sample demonstrates the use of Kubernetes secrets for the OpenID Connect 
 client credentials, and for the keystore used by OpenIG to sign JWT
-signing keys. This is a best practice. 
+session cookies.  
 
 There are two shell scripts provided that will create the 
 secrets needed for the demo. 
@@ -54,7 +54,7 @@ CLIENT_SECRET=your_google_client_secret
 
 ```
 
-Run the following:
+Run the following scripts:
 
 ```
 ./create-ig-keystore.secret.sh
@@ -78,8 +78,11 @@ Run ```minikube dashboard``` to view the status of the deployed
 applications. 
 
 
-The IP address minikube should be put in /etc/hosts. You 
-can get the IP address by running ```minikube ip```
+The IP address minikube needs to be in your /etc/hosts. The sample
+assumes a fake FQDN of openig.test.com. You 
+can get the IP address by running ```minikube ip```.  
+
+For example:
 
 ```
 192.168.3.20  openig.test.com
@@ -104,6 +107,14 @@ Note that in the case of the OpenID connect example you will
 need to modify the call back url in the Google developer console
 to match the nodeport above.  For example, register
 http://openig.test.com:30345/openid/callback 
+
+If you are using minikube, you can also find the IP and port of 
+service by using the service sub-command. For example:
+
+
+```minikube service openig```
+
+
 
 
 
