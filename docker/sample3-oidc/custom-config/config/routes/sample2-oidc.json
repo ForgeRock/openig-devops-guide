@@ -57,7 +57,7 @@
         "type": "StaticResponseHandler",
         "config": {
           "status": 200,
-          "entity": "<html><h1>Welcome to the OIDC Test Page</h1><p><b>Your are:</b> ${attributes.openid.user_info.name}</p><p><b>Working on host:</b> ${env['HOSTNAME']}</p></html>"
+          "entity": "<html><h1>Welcome to the OIDC Test Page</h1><p><b>Howdy</b> ${attributes.openid.user_info.name}</p><p><b>You are working on host:</b> ${env['HOSTNAME']}</p></html>"
         }
       }
     }
