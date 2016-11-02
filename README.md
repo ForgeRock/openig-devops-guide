@@ -1,13 +1,16 @@
-# OpenIG samples to support the DevOps guide
-
-
 # Contents
 
-docker/  - docker samples for OpenIG. Includes base image needed that is required for the more advanced samples
+docker/sample1-base<br>
+Dockerfile to create and run an OpenIG base image. 
 
-kubernetes/ - A more complete example that demontrates OpenIG deployed to Kubernetes along with a sample applcation. 
+docker/sample2-config<br> 
+OpenIG configuration to display a simple "Hello World" page and a Dockerfile that refers to the base image. 
 
+docker/sample3-oidc<br> 
+OpenIG configuration to use a social login to access a page and a Dockerfile that refers to the base image.
 
+Kubernetes/sample4-kubernetes<br> 
+OpenIG configuration, a Dockerfile, scripts, and yaml files to demonstrate OpenIG running on Kubernetes. 
 
 # Feedback 
 
