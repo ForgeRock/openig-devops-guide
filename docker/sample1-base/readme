@@ -1,0 +1,17 @@
+The sample in this directory deploys the latest snapshot of OpenIG with Docker.
+
+1.Run the Docker instruction to build a Docker image called forgerock/openig-base:
+$ docker build -t forgerock/openig-base .
+
+2.Check that the base image is built:
+$ docker images
+REPOSITORY                  TAG                  IMAGE ID            CREATED             SIZE
+forgerock/openig-base       latest               5a063649fc87        57 seconds ago      428 MB
+
+3.Run the Docker image on port 8080:
+$ docker run -p 8080:8080 forgerock/openig-base
+
+4.Go to http://openig.example.com:8080 to view the OpenIG welcome page and confirm that your OpenIG image is running.
+
+5.In the terminal that is running the Docker image, press CTRL-C to stop the image.
+
