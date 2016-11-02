@@ -12,4 +12,5 @@ $ `docker run -p 8080:8080 sample2-config`
 
 ### 3. Test that OpenIG is running on http://openig.example.com:8080/hello. 
 A page displaying the "Hello World" statement is displayed.
+
 ### 4. In the terminal that is running the Docker image, press `CTRL-C` to stop the image.
