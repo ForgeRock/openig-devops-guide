@@ -28,8 +28,8 @@ This sample is tested on the following software:
     * Make sure minikube is running successfully. Try some of the Kubernetes examples before proceeding.
     * If you are using docker machine shut it down. You want to use minikube's docker
     * Run  ```eval $(minikube docker-env)``` to connect your docker client to minikube
-    * Run ```minikube ip`` to get the ip of minikube VM
-    * Add the ip to /etc/hosts:  ```xx.xx.xx.xx openig.test.com```  (xx is the ip from the previous step)
+    * Run ```minikube ip``` to get the ip of minikube VM
+    * Add the ip to /etc/hosts:  ```xx.xx.xx.xx openig.test.com```  (xx is the IP from the previous step)
   
     For information about how to install the software and initialize your cluster, see
     https://wikis.forgerock.org/confluence/display/DC/Setting+up+a+Desktop+Kubernetes+Environment+using+minikube
@@ -40,6 +40,8 @@ This sample is tested on the following software:
     If the forgerock/openig-base image is not listed in the repositories,
     build the image as described in `../docker/sample1-base`.
     
+    If you have previously used the docker machine (and not minikube) these images 
+    may need to be built again as you are using a different docker environment.
 
 4. Create an ingress controller for minikube:<br>
    
@@ -78,7 +80,7 @@ Secrets are used in the Kubernetes sample to demonstrate OpenID Connect client a
 ```
 # creates the deployment for IG
 kubectl create -f openig.yaml
-# Creates services to expose openig
+# Creates services to expose openig inside the cluster
 kubectl create -f service.yaml
 # The ingress exposes IG outside of minikube. If you do not have an ingress controller, this wont do anything
 kubectl create -f ingress.yaml
