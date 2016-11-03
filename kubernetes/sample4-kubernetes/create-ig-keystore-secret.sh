@@ -1,4 +1,6 @@
 #!/bin/bash
+# Creates a keystore that is used by OpenIG for jwt session signing.
+# Multiple OpenIG can share the same keystore by mounting it on each pod
 
 rm -f /tmp/keystore.jks
 keytool -genkeypair -alias ig-jwt-keypair -storepass changeit -storetype jks \

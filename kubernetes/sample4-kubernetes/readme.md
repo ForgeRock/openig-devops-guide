@@ -10,38 +10,43 @@ The sample deploys OpenIG and a sample application to demonstrate the following 
 # Software Versions
 This sample is tested on the following software:
 * Docker 1.12
-* VirtualBox Warren>>>version?
-* minikube Warren>>>version?
-* kubectl Warren>>>version?
+* minikube 0.12.2
+* kubectl / kubernetes 1.4.3
 
 
 # Before You Start
-1. Make sure that you have built the OpenIG base image described in ../docker/sample1-base:<br>
+
+
+1. Install the software required for this sample:
+  
+    * docker client
+    * minikube  See https://github.com/kubernetes/minikube 
+    * kubectl.  On Mac OS you can install with homebrew
+
+2. Initialize your cluster
+   
+    * Make sure minikube is running successfully. Try some of the Kubernetes examples before proceeding.
+    * If you are using docker machine shut it down. You want to use minikube's docker
+    * Run  ```eval $(minikube docker-env)``` to connect your docker client to minikube
+    * Run ```minikube ip`` to get the ip of minikube VM
+    * Add the ip to /etc/hosts:  ```xx.xx.xx.xx openig.test.com```  (xx is the ip from the previous step)
+  
+    For information about how to install the software and initialize your cluster, see
+    https://wikis.forgerock.org/confluence/display/DC/Setting+up+a+Desktop+Kubernetes+Environment+using+minikube
+    
+3. Make sure that you have built the OpenIG base image described in ../docker/sample1-base:<br>
     $ `docker images`
 
     If the forgerock/openig-base image is not listed in the repositories,
     build the image as described in `../docker/sample1-base`.
-
-2. Install the software required for this sample:
-    * VirtualBox
-    * minikube
-    * kubectl
-
-3. Initialize your cluster
-    * Warren>>>Should we add specific info here rather than a link, in these steps:
-    * Warren>>>1. Shut down docker running locally
-    * Warren>>>2. Init the virtual machine
-    * Warren>>>3. Set env var for minikube
-    * Warren>>>4. Find IP of minikube and add to /etc/hosts
-    * Warren>>>5. test, kubectl get pods --all-namespaces
-    For information about how to install the software and initialize your cluster, see
-    https://wikis.forgerock.org/confluence/display/DC/Setting+up+a+Desktop+Kubernetes+Environment+using+minikube
+    
 
 4. Create an ingress controller for minikube:<br>
-    $ `create-ingress.sh`
-
-    Ingress is not mandatory but makes it easier to create the callback URL for OpenID connect.
-    Warren>>> Consider adding the script to create the ingress controller. It is not here but is in the other repo for kubernetes.
+   
+    An Ingress controller is not mandatory but makes it easier to create the callback URL for OpenID connect.
+  
+    Track this issue https://github.com/kubernetes/minikube/issues/611 for an update on when the Ingres controller
+    will come out of the box on minikube
 
 
 # Build the Docker Image for This Sample:
@@ -57,7 +62,7 @@ This sample is tested on the following software:
 # Create Secrets for OpenID Connect
 Secrets are used in the Kubernetes sample to demonstrate OpenID Connect client and the use of keystore sign JWT session cookies.
 
-1. In `env.sh`, replace `<your-client-ID>` and `<your-client-secret>` with the values you created in `../docker/sample3-oidc`.
+1. Copy `env.sh.template` to  `env.sh`, replace `<your-client-ID>` and `<your-client-secret>` with the values you created in `../docker/sample3-oidc`.
 
 2. Create keystore secrets:<br>
     $ `./create-ig-keystore-secret.sh`
@@ -65,17 +70,23 @@ Secrets are used in the Kubernetes sample to demonstrate OpenID Connect client a
 3. Create OpenIG secrets:<br>
     $ `./create-igsecrets.sh`
 
-    Warren>>>>Pls confirm that is what these scripts are doing. The files are not commented.
+
 
 
 # Deploy the Example
-1. Run `kubectl create -f openig.yaml`
-2. Run `kubectl create -f service.yaml`
-3. Run `kubectl create -f ingress.yaml`
-4. Run `kubectl create -f sample-app.yaml`
 
-Warren>>>Consider adding a note for each of the above commands to say what it is doing.
-             The yaml files are not commented.
+```
+# creates the deployment for IG
+kubectl create -f openig.yaml
+# Creates services to expose openig
+kubectl create -f service.yaml
+# The ingress exposes IG outside of minikube. If you do not have an ingress controller, this wont do anything
+kubectl create -f ingress.yaml
+# Deploys the sample application
+kubectl create -f sample-app.yaml
+```
+
+
 
 # View the application
 1. View the status of the deployed applications:<br>

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# This creates secrets for the OpenIG ODIC example.
+# These secrets will be available to the pod as environment variables.
 
 source env.sh
 

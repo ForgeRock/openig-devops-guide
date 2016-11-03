@@ -2,3 +2,4 @@
 *.iml
 env.sh
 
+/kubernetes/sample4-kubernetes/env.sh
