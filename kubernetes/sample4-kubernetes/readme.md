@@ -7,6 +7,13 @@ The sample deploys OpenIG and a sample application to demonstrate the following 
 * OpenID connect integration with Google 
 * OpenIG throttling 
 
+# Software Versions
+This sample is tested on the following software:
+* Docker 1.12
+* VirtualBox Warren>>>version?
+* minikube Warren>>>version?
+* kubectl Warren>>>version?
+
 
 # Before You Start
     1. Make sure that you have built the OpenIG base image described in ../docker/sample1-base:
