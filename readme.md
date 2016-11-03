@@ -1,6 +1,6 @@
 The sample files in this repository deploy OpenIG with Docker and Kubernetes.
 
-For information about how to run these samples, see the OpenIG DevOps Guide.
+For information about how to run these samples, see the OpenIG Deployment Guide.
 
 # Contents
 * `docker/sample1-base`: Dockerfile to create and run an OpenIG base image. 
