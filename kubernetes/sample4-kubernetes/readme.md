@@ -86,9 +86,7 @@ Warren>>>Consider adding a note for each of the above commands to say what it is
 3. Access the application at http://openig.test.com.
 
 
-
-
-Notes:
+# Notes
 
 Finding and Using the IP Address of Minikube
 ---
