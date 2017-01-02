@@ -19,16 +19,9 @@ RUN rm -fr webapps/*
 EXPOSE 8080 8443
 
 
-# To use your own custom IG war file, uncomment the following line and comment out the curl command below
-#ADD openig.war webapps/ROOT.war
+# Add the downloaded .war file to the working directory
+ADD openig.war /tmp/openig.war
 
 
-# Alternatively, pull OpenIG from the Maven repo
-ENV MVN_REPO=https://maven.forgerock.org/repo/repo/org/forgerock/openig
-ENV OPENIG_VERSION=5.0.0-SNAPSHOT
-
-
-RUN curl $MVN_REPO/openig-war/$OPENIG_VERSION/openig-war-$OPENIG_VERSION.war \
-     -o /tmp/openig.war \
- && unzip /tmp/openig.war -d /usr/local/tomcat/webapps/ROOT \
+RUN unzip /tmp/openig.war -d /usr/local/tomcat/webapps/ROOT \
  && rm -f /tmp/*zip
