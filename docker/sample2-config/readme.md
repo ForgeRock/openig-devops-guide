@@ -1,12 +1,12 @@
 # Sample 2 - Deploying OpenIG With a Basic Configuration in Docker
 
 ### Before you start:
-* Build the base image from the ../sample1_base directory.<br>
+* Build the base image from the `../sample1_base` directory.<br>
 * Review the OpenIG configuration file in `/custom-config/config/routes/01-hello.json`.
   
 ### Running the Sample
 
-1. From this directory, build the docker image:<br>
+1. From the `sample2-config` directory, build the docker image:<br>
 $ `docker build -t sample2-config .`
 
 2. Run the docker image:<br>
