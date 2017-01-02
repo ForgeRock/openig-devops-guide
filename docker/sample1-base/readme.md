@@ -1,7 +1,8 @@
 # Sample 1 - Deploying an OpenIG Base Image in Docker
 
 ### Before you start:
-* Read and follow the instructions in Chapter 1, <i>Before You Start</i> of the Deployment Guide. You should have Docker installed, the sample files and the OpenIG .war file downloaded, and the network configured.
+* Read and follow the instructions in Chapter 1, <i>Before You Start</i> of the Deployment Guide.<br>
+You should have downloaded the OpenIG .war file and the sample files, configured the network, and installed Docker.
 * Make sure that port 8080 is not being used.
 * Start Docker or make sure it is running.
 
