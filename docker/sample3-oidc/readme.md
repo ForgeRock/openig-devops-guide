@@ -11,7 +11,7 @@
 
   A client ID and a client secret are created. Make a note of their values or keep the site open for the next step.
 
-2. Add Google Credentials to the Dockerfile, as indicated in the Dockerfile.
+2. In the `sample3-oidc` directory, edit the Dockerfile to add Google Credentials as indicated.
 
 3. Build the docker image:<br>
 $ `docker build -t sample3-oidc .`
