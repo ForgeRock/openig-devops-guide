@@ -20,32 +20,32 @@ This sample is tested on the following software:
 1. Install the software required for this sample:
   
     * docker client
-    * minikube  See https://github.com/kubernetes/minikube 
+    * minikube.  See https://github.com/kubernetes/minikube 
     * kubectl.  On Mac OS you can install with homebrew
 
 2. Initialize your cluster
    
     * Make sure minikube is running successfully. Try some of the Kubernetes examples before proceeding.
-    * If you are using docker machine shut it down. You want to use minikube's docker
+    * If you are using docker locally, shut it down. You want to use minikube's docker
     * Run  ```eval $(minikube docker-env)``` to connect your docker client to minikube
-    * Run ```minikube ip``` to get the ip of minikube VM
-    * Add the ip to /etc/hosts:  ```xx.xx.xx.xx openig.test.com```  (xx is the IP from the previous step)
+    * Run ```minikube ip``` to get the IP of the minikube VM
+    * Add the IP to `/etc/hosts`:  ```xx.xx.xx.xx openig.test.com```  (where xx is the IP from the previous step)
   
     For information about how to install the software and initialize your cluster, see
     https://wikis.forgerock.org/confluence/display/DC/Setting+up+a+Desktop+Kubernetes+Environment+using+minikube
     
-3. Make sure that you have built the OpenIG base image described in ../docker/sample1-base:<br>
+3. Make sure that you have built the OpenIG base image described in `../docker/sample1-base`:<br>
     $ `docker images`
 
     If the forgerock/openig-base image is not listed in the repositories,
     build the image as described in `../docker/sample1-base`.
     
-    If you have previously used the docker machine (and not minikube) these images 
-    may need to be built again as you are using a different docker environment.
+    If you have previously used the docker machine (and not minikube) you might  
+    need to build the images again because you are using a different docker environment.
 
-4. Create an ingress controller for minikube:<br>
+4. Create an Ingress controller for minikube:<br>
    
-    An Ingress controller is not mandatory but makes it easier to create the callback URL for OpenID connect.
+    An Ingress controller is not mandatory but makes it easier to create the callback URL for OpenID Connect.
   
     Track this issue https://github.com/kubernetes/minikube/issues/611 for an update on when the Ingres controller
     will come out of the box on minikube
