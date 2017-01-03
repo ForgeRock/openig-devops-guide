@@ -2,7 +2,7 @@
 
 ### Before you start:
 * Build the base image from `../sample1-base directory`
-* Review the OpenIG configuration file in `/custom-config/config/routes/sample2-oidc.json`
+* Review the OpenIG configuration file in `/custom-config/config/routes/07-openid.json`
 
 ### Running the Sample
 1. In https://console.cloud.google.com/apis/credentials, create credentials for an OAuth 2.0 client ID with the following options:
