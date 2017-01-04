@@ -9,9 +9,9 @@ The sample deploys OpenIG and a sample application to demonstrate the following 
 
 # Software Versions
 This sample is tested on the following software:
-* Docker 1.12
-* minikube 0.12.2
-* kubectl / kubernetes 1.4.3
+* Docker 1.13
+* minikube 0.14.0
+* kubectl / kubernetes 1.4.7 
 
 
 # Before You Start
@@ -44,13 +44,13 @@ This sample is tested on the following software:
     
 4. Make a note of the Client ID and Client Secret you created in `../docker/sample3-oidc`, or create new values.    
 
-5. Create an Ingress controller for minikube.<br>
+5. Create an Ingress controller for minikube.
    
     An Ingress controller is not mandatory but makes it easier to create the callback URL for OpenID Connect.
-  
-    Track this issue https://github.com/kubernetes/minikube/issues/611 for an update on when the Ingres controller
-    will come out of the box on minikube
+To enable the ingress controller run `minikube addons enable ingress`
 
+*Note* the example as configured assumes the use of an ingress controller. You should register the callback handler
+defined in docker/custom-config/bindings.json  in the Google OIDC client registration page.
 
 # Build the Docker Image for This Sample:
 1. Run the following command from this directory:<br>
@@ -88,7 +88,6 @@ Secrets are used in the Kubernetes sample to demonstrate OpenID Connect client a
 
 4. Deploy the sample application:<br>
  $ `kubectl create -f sample-app.yaml`
-
 
 
 # View the application
