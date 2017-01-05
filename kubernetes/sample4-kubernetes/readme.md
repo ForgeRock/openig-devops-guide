@@ -49,8 +49,8 @@ This sample is tested on the following software:
     An Ingress controller is not mandatory but makes it easier to create the callback URL for OpenID Connect.
 To enable the ingress controller run `minikube addons enable ingress`
 
-*Note* the example as configured assumes the use of an ingress controller. You should register the callback handler
-defined in docker/custom-config/bindings.json  in the Google OIDC client registration page.
+*Note*: This example assumes that you are using an Ingress controller. In the Google OIDC client registration page, make sure you register the callback URL that is defined in `docker/custom-config/bindings.json`. In this example, the 
+callback URL is `http://openig.test.com/openid/callback`.
 
 # Build the Docker Image for This Sample:
 1. Run the following command from this directory:<br>
