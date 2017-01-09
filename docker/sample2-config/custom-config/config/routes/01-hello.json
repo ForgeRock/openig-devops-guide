@@ -4,7 +4,7 @@
     "config" : {
       "status": 200,
       "reason": "OK",
-      "entity": "Hello, world! Your route is ${request.uri.path}"
+      "entity": "<html><body><p>Hello, world! Your route is ${request.uri.path}.</p></body></html>"
     }
   },
   "condition": "${matches(request.uri.path, '^/hello')}"
