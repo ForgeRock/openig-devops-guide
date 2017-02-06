@@ -44,10 +44,13 @@
             "failureHandler": {
               "type": "StaticResponseHandler",
               "config": {
-                "comment": "Trivial failure handler for debugging only",
                 "status": 500,
-                "reason": "Error",
-                "entity": "${attributes.openid}"
+                "headers": {
+                  "Content-Type": [
+                    "text/plain"
+                  ]
+                },
+                "entity": "An error occurred during the OAuth2 setup."
               }
             }
           }
