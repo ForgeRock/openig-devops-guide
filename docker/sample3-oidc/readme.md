@@ -1,8 +1,8 @@
-# Sample 3 - Deploying OpenIG With OpenID Connect 1.0 in Docker
+# Sample 3 - Deploying IG With OpenID Connect 1.0 in Docker
 
 ### Before you start:
 * Build the base image from `../sample1-base directory`
-* Review the OpenIG configuration file in `/custom-config/config/routes/07-openid.json`
+* Review the IG configuration file in `/custom-config/config/routes/07-openid.json`
 
 ### Running the Sample
 1. In https://console.cloud.google.com/apis/credentials, create credentials for an OAuth 2.0 client ID with the following options:
@@ -19,7 +19,7 @@ $ `docker build -t sample3-oidc .`
 4. Run the docker image:<br>
 $ `docker run -p 8080:8080 sample3-oidc`
 
-5. Test that OpenIG is running on http://openig.example.com:8080/openid.<br>
+5. Test that IG is running on http://openig.example.com:8080/openid.<br>
   Depending on whether you logged out of Google, you might need to authenticate.<br>
   The Google login is used to give you access to the OIDC test page, and you are asked to allow access. The OIDC test page is then displayed.
 
