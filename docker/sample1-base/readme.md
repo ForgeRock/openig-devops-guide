@@ -1,8 +1,8 @@
-# Sample 1 - Deploying an OpenIG Base Image in Docker
+# Sample 1 - Deploying an IG Base Image in Docker
 
 ### Before you start:
 * Read and follow the instructions in Chapter 1, <i>Before You Start</i> of the Deployment Guide.<br>
-You should have downloaded the OpenIG .war file and the sample files, configured the network, and installed Docker.
+You should have downloaded the IG .war file and the sample files, configured the network, and installed Docker.
 * Make sure that port 8080 is not being used.
 * Start Docker or make sure it is running.
 
@@ -17,7 +17,7 @@ $ `docker images`
 3. Run the docker image:<br>
 $ `docker run -p 8080:8080 forgerock/openig-base`
 
-4. Test that OpenIG is running on http://openig.example.com:8080:<br>
-The OpenIG welcome page of is displayed. 
+4. Test that IG is running on http://openig.example.com:8080:<br>
+The IG welcome page of is displayed. 
   
 When you have finished, in the terminal that is running the Docker image press `CTRL-C` to stop the image.
