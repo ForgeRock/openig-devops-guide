@@ -6,8 +6,8 @@ ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 
 
-# The default home for OpenIG config. To set a different location, override these values.
-ENV OPENIG_BASE /var/openig
+# The default home for IG config. To set a different location, override these values.
+ENV IG_INSTANCE_DIR /var/openig
 WORKDIR $CATALINA_HOME
 
 
